@@ -4,7 +4,7 @@ from kivymd.uix.screen import MDScreen
 from kivy.app import App
 from kivymd.uix.floatlayout import  MDFloatLayout
 from kivy.clock import Clock
-import requests
+import requests, urllib3, chardet, certifi, idna
 import time
 import re, os, asyncio, random, string
 from kivymd.uix.floatlayout import FloatLayout
@@ -97,17 +97,11 @@ class auto(MDApp, App):
     def spam(self, *args):
     	
     	
-    	url = f"https://discord.com/api/v10/channels/{chat}/messages"
-    	header = {"authorization": token}
-    	payload = {'content': texto[random.randint(0, 2)]}
+    	url = f"https://discord.com/api/v10/channels/chat/messages"
+    	header = {"authorization": "oi"}
+    	payload = {'content': "oi"}
     	r = requests.post(f'https://discord.com/api/v10/channels/{chat}/messages', data=payload, headers=header)
-    	try:
-    		print(r.json()["content"])
-    		self.root.ids.mens.text = "Sucesso"
-    	except:
-    		self.root.ids.mens.text = "Error\nVerifique seu token ou o id"
-    		pass
-    
+    	
     
     
     
