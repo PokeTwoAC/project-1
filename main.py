@@ -152,6 +152,17 @@ ScreenManager:
 			bold: True
 			halign: "center"
 			pos_hint: {"center_x":0.5, "center_y": 0.60}
+		
+		MDLabel:
+			id: laza
+			text: "Para desligar, coloque qualquer coisa no chat ou token"
+			theme_text_color: "Custom"
+
+			text_color: 112,128,144
+		
+			bold: True
+			halign: "center"
+			pos_hint: {"center_x":0.5, "center_y": 0.20}
 	
 		MDLabel:
 			id: mens
@@ -267,7 +278,7 @@ class auto(MDApp, App):
     	   
     	   
     	else:
-    		self.root.ids.get_screen("oi").mens.text = "Coloque seu token e o ID do chat"
+    		self.root.get_screen("oi").ids.mens.text = "Coloque seu token e o ID do chat"
 
        
 	#def login(self):
